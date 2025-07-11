@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import SearchHeader from "../../search/SearchHeader";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const HeaderMain = () => {
+  const router = useRouter();
   const [scrollData, setScrollData] = useState({
     scrollTop: 0,
     scrollHeight: 0,
@@ -21,6 +23,11 @@ const HeaderMain = () => {
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+  const handleSearchProduct = (value: string) => {
+    const params = new URLSearchParams(window.location.search);
+    params.set("search", value);
+    router.push(`?${params.toString()}`);
+  };
   return (
     <div
       className={`sticky top-0 flex items-center justify-center p-1 bg-white bg-opacity-60 backdrop-blur-sm ${
@@ -30,6 +37,7 @@ const HeaderMain = () => {
       <SearchHeader
         placeholder="Tìm kiếm khoá học..."
         width={300}
+        setValues={handleSearchProduct}
       ></SearchHeader>
       <div className="absolute top-1 right-1">
         <Image

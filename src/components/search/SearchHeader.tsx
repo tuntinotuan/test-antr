@@ -20,11 +20,12 @@ const SearchHeader = ({
   };
   useEffect(() => {
     const timer = setTimeout(() => {
-      localValue && setValues(localValue);
+      localValue ? setValues(localValue) : setValues("");
     }, 200);
 
     return () => clearTimeout(timer); // Cleanup timeout on each keystroke
-  }, [localValue, setValues]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [localValue]);
   return (
     <label
       htmlFor="searchInputId"

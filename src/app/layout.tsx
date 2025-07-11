@@ -23,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`text-textPrimary`}>
+      <body className={`text-textPrimary bg-gray-50`}>
         <Providers>{children}</Providers>
       </body>
     </html>
