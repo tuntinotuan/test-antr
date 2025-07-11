@@ -1,11 +1,9 @@
 import React from "react";
-import ProductSaleTag from "./ProductSaleTag";
 import Button from "../button/Button";
 
-const ProductContent = ({ hiddenBtnBuy }: any) => {
+const ProductContent = ({ hiddenBtnBuy = false }: any) => {
   return (
     <div className="flex flex-col gap-4 p-6">
-      <ProductSaleTag />
       <p className="font-semibold line-clamp-2 cursor-pointer">
         Lọc gió động cơ Air Filter – Chevrolet Colorado, Trailblazer (52046262)
       </p>
@@ -16,7 +14,7 @@ const ProductContent = ({ hiddenBtnBuy }: any) => {
       </div>
       {!hiddenBtnBuy && (
         <Button className="text-blue600 bg-blue50" hover="hover:brightness-95">
-          Mua ngay
+          Xem chi tiết
         </Button>
       )}
     </div>

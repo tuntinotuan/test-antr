@@ -1,25 +1,52 @@
-import React from "react";
-import CameraIcon from "../icons/CameraIcon";
+import React, { useEffect, useState } from "react";
 import SearchIcon from "../icons/SearchIcon";
 
-const SearchHeader = () => {
+const SearchHeader = ({
+  disable,
+  placeholder,
+  width,
+  className,
+  setValues,
+}: {
+  disable?: boolean;
+  placeholder: string;
+  width: number | string;
+  className?: string;
+  setValues?: any;
+}) => {
+  const [localValue, setLocalValue] = useState("");
+  const handleChangeInput = (e: any) => {
+    setLocalValue(e.target.value);
+  };
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      localValue && setValues(localValue);
+    }, 200);
+
+    return () => clearTimeout(timer); // Cleanup timeout on each keystroke
+  }, [localValue, setValues]);
   return (
     <label
-      htmlFor="search-header"
-      className="max-13in:w-[550px] max-lg:w-[320px] flex items-center justify-between gap-2 w-[739px] border-2 border-blue500 rounded-full p-2 cursor-pointer"
+      htmlFor="searchInputId"
+      className={`flex items-center gap-2 bg-white border border-gray-200 rounded-lg px-2 py-1 text-sm hover:border-gray-500 transition-all cursor-text ${
+        disable ? "cursor-wait" : ""
+      } ${className}`}
+      style={{ width: width }}
     >
+      <SearchIcon
+        fontSize="medium"
+        className="text-gray-500 hover:border-gray-500"
+      ></SearchIcon>
       <input
         type="search"
-        id="search-header"
-        className={`flex-1 ml-3`}
-        placeholder="Tìm sản phẩm"
-      />
-      <div className="flex items-center gap-3">
-        <CameraIcon />
-        <div className="py-3 px-6 bg-blue500 text-white rounded-full cursor-pointer">
-          <SearchIcon />
-        </div>
-      </div>
+        id="searchInputId"
+        placeholder={placeholder}
+        className={`w-full placeholder:font-light placeholder:text-gray-500 ${
+          disable ? "cursor-wait" : ""
+        }`}
+        disabled={disable}
+        onChange={handleChangeInput}
+      ></input>
     </label>
   );
 };
