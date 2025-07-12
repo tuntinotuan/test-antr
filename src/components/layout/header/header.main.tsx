@@ -30,7 +30,7 @@ const HeaderMain = () => {
   };
   return (
     <div
-      className={`sticky top-0 flex items-center justify-center p-1 bg-white bg-opacity-60 backdrop-blur-sm ${
+      className={`sticky top-0 flex items-center justify-center p-1 bg-white bg-opacity-60 backdrop-blur-sm z-20 ${
         scrollData.scrollTop > 0 ? "shadow-lg" : ""
       }`}
     >
@@ -46,7 +46,7 @@ const HeaderMain = () => {
           width={30}
           height={30}
           priority
-          className="border border-green-300 rounded-full"
+          className="border border-green-300 rounded-full cursor-wait"
           unoptimized
         />
       </div>

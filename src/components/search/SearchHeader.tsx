@@ -21,7 +21,7 @@ const SearchHeader = ({
   useEffect(() => {
     const timer = setTimeout(() => {
       localValue ? setValues(localValue) : setValues("");
-    }, 200);
+    }, 500);
 
     return () => clearTimeout(timer); // Cleanup timeout on each keystroke
     // eslint-disable-next-line react-hooks/exhaustive-deps

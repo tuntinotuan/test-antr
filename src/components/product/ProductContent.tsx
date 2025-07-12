@@ -12,7 +12,7 @@ const ProductContent = ({
 }) => {
   return (
     <div className="flex flex-col gap-4 p-6">
-      <p className="font-semibold line-clamp-2 cursor-pointer">{name}</p>
+      <p className="font-semibold line-clamp-1 cursor-pointer">{name}</p>
       <p className="text-xs text-gray-500 font-semibold line-clamp-1 cursor-pointer">
         {describe}
       </p>

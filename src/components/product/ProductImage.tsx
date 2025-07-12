@@ -12,9 +12,9 @@ const ProductImage = ({ src, alt }: ProductImageProps) => {
       <Image
         src={src}
         alt={alt}
-        width={237}
-        height={237}
-        className="w-full"
+        width={0}
+        height={0}
+        className="w-full h-[200px]"
         unoptimized
       ></Image>
     </div>
