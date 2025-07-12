@@ -2,7 +2,10 @@ import { productList } from "@/api/mock.api";
 import PopupViewDetails from "@/components/popup/PopupViewDetails";
 import ProductCard from "@/components/product/ProductCard";
 import SkeletonProductCard from "@/components/skeleton/SkeletonProductCard";
-import { handleShowPopupDetails } from "@/store/slices/productSlice";
+import {
+  handleGetDetailsData,
+  handleShowPopupDetails,
+} from "@/store/slices/productSlice";
 import { RootState } from "@/store/store";
 import { Id } from "@/types/product";
 import { useSearchParams } from "next/navigation";
@@ -28,7 +31,8 @@ const ProductCardList = () => {
   //   }, 2000);
   // };
   const searchParams = useSearchParams();
-  const searchTextParam = searchParams.get("search");
+  const searchTextParam = searchParams.get("search")?.toLowerCase() || "";
+
   useEffect(() => {
     if (searchTextParam) {
       const newData = data.filter((item) =>
@@ -41,8 +45,9 @@ const ProductCardList = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchTextParam]);
   const handleClickViewBtn = (id: Id) => {
-    console.log("This is id of view details===", id);
+    const singleData = productList.find((item) => item.id === id);
     dispatch(handleShowPopupDetails(true));
+    dispatch(handleGetDetailsData(singleData));
   };
   return (
     <div className="flex items-start justify-center flex-wrap gap-4 my-5">

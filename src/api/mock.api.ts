@@ -1,6 +1,6 @@
 import { ProductTypes } from "@/types/product";
 
-export const productList: ProductTypes = [
+export const productList: ProductTypes[] = [
   {
     id: 111,
     kind: "course",

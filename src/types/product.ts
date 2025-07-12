@@ -9,4 +9,4 @@ export type ProductTypes = {
   des: string;
   image: string;
   liked: boolean;
-}[];
+};
