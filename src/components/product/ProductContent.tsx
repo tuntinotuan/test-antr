@@ -5,10 +5,12 @@ const ProductContent = ({
   name,
   price,
   describe,
+  onClick,
 }: {
   name: string;
   describe: string;
   price: number;
+  onClick: () => void;
 }) => {
   return (
     <div className="flex flex-col gap-4 p-6">
@@ -17,7 +19,11 @@ const ProductContent = ({
         {describe}
       </p>
       <p className="text-[#B71D18] text-xl font-semibold">{price}</p>
-      <Button className="text-blue600 bg-blue50" hover="hover:brightness-95">
+      <Button
+        className="text-blue600 bg-blue50"
+        hover="hover:brightness-95"
+        onClick={onClick}
+      >
         Xem chi tiết
       </Button>
     </div>

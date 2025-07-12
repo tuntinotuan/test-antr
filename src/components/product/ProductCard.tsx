@@ -10,6 +10,7 @@ type ProductCardProps = {
   imageSrc: string;
   favorite: boolean;
   cardWidth?: number;
+  onClickDetailsBtn?: () => void;
 };
 
 const ProductCard = ({
@@ -19,6 +20,7 @@ const ProductCard = ({
   describe,
   price,
   favorite,
+  onClickDetailsBtn,
 }: ProductCardProps) => {
   return (
     <div
@@ -27,7 +29,12 @@ const ProductCard = ({
     >
       <ProductFavorite favorite={favorite}></ProductFavorite>
       <ProductImage src={imageSrc} alt="product-image-1" />
-      <ProductContent name={name} describe={describe} price={price} />
+      <ProductContent
+        name={name}
+        describe={describe}
+        price={price}
+        onClick={onClickDetailsBtn ? onClickDetailsBtn : () => {}}
+      />
     </div>
   );
 };
