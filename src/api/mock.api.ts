@@ -1,6 +1,6 @@
 import { ProductTypes } from "@/types/product";
 
-export const productList: ProductTypes[] = [
+export const productListFakeData: ProductTypes[] = [
   {
     id: 111,
     kind: "course",

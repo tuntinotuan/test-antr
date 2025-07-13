@@ -1,9 +1,11 @@
+import { productListFakeData } from "@/api/mock.api";
 import { ProductTypes } from "@/types/product";
 import { createSlice } from "@reduxjs/toolkit";
 
 interface ProductState {
   showPopupDetails: boolean;
   detailsData: ProductTypes;
+  productList: ProductTypes[];
 }
 
 const initialState: ProductState = {
@@ -17,6 +19,7 @@ const initialState: ProductState = {
     des: "Learn data science, automation, build websites, games and apps!",
     liked: false,
   },
+  productList: productListFakeData,
 };
 
 const productSlice = createSlice({
@@ -31,9 +34,16 @@ const productSlice = createSlice({
       ...state,
       detailsData: action.payload,
     }),
+    handleUpdateProductList: (state, action) => ({
+      ...state,
+      productList: action.payload,
+    }),
   },
 });
 
-export const { handleShowPopupDetails, handleGetDetailsData } =
-  productSlice.actions;
+export const {
+  handleShowPopupDetails,
+  handleGetDetailsData,
+  handleUpdateProductList,
+} = productSlice.actions;
 export default productSlice.reducer;

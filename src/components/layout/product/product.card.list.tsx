@@ -1,4 +1,3 @@
-import { productList } from "@/api/mock.api";
 import PopupViewDetails from "@/components/popup/PopupViewDetails";
 import ProductCard from "@/components/product/ProductCard";
 import SkeletonProductCard from "@/components/skeleton/SkeletonProductCard";
@@ -7,17 +6,18 @@ import {
   handleShowPopupDetails,
 } from "@/store/slices/productSlice";
 import { RootState } from "@/store/store";
-import { Id } from "@/types/product";
+import { Id, ProductTypes } from "@/types/product";
 import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { useDispatch, useSelector } from "react-redux";
 
-const ProductCardList = () => {
-  const [data, setData] = useState(productList);
-  // const [showPopupDetails, setShowPopupDetails] = useState(false);
+const ProductCardList = ({ listData }: { listData: ProductTypes[] }) => {
+  const { showPopupDetails, productList } = useSelector(
+    (state: RootState) => state.product
+  );
+  const [data, setData] = useState(listData);
   const dispatch = useDispatch();
-  const { showPopupDetails } = useSelector((state: RootState) => state.product);
   // const [items, setItems] = useState(productList);
   // const [hasMore, setHasMore] = useState(true);
 
@@ -44,7 +44,7 @@ const ProductCardList = () => {
       );
       setData(newData);
     } else {
-      setData(productList);
+      setData(data);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchTextParam, minPriceParam, maxPriceParam]);
@@ -53,6 +53,7 @@ const ProductCardList = () => {
     dispatch(handleShowPopupDetails(true));
     dispatch(handleGetDetailsData(singleData));
   };
+  if (!data) return null;
   return (
     <div className="flex items-start justify-center flex-wrap gap-4 my-5">
       <PopupViewDetails
