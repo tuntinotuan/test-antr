@@ -11,6 +11,7 @@ type ProductCardProps = {
   favorite: boolean;
   cardWidth?: number;
   onClickDetailsBtn?: () => void;
+  onClickFavoriteBtn?: () => void;
 };
 
 const ProductCard = ({
@@ -21,13 +22,17 @@ const ProductCard = ({
   price,
   favorite,
   onClickDetailsBtn,
+  onClickFavoriteBtn,
 }: ProductCardProps) => {
   return (
     <div
       className={`relative max-13in:w-[300px] w-[352px] flex flex-col gap-2 bg-white hover:shadow-md rounded-lg overflow-hidden transition-all group`}
       style={{ width: cardWidth }}
     >
-      <ProductFavorite favorite={favorite}></ProductFavorite>
+      <ProductFavorite
+        favorite={favorite}
+        onClick={onClickFavoriteBtn ? onClickFavoriteBtn : () => {}}
+      ></ProductFavorite>
       <ProductImage src={imageSrc} alt="product-image-1" />
       <ProductContent
         name={name}

@@ -18,10 +18,10 @@ export const dynamic = "force-dynamic";
 export default function Home() {
   const { productList } = useSelector((state: RootState) => state.product);
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(handleUpdateProductList(productListFakeData));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  // useEffect(() => {
+  //   dispatch(handleUpdateProductList(productListFakeData));
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
   const { hydrated } = useHydrate();
   if (!hydrated) return null; // or a skeleton/placeholder
   return (
