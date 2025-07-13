@@ -3,7 +3,7 @@ import React, { useState } from "react";
 type FilterCheckItemProps = {
   checked: boolean;
   title: string;
-  quantity: number;
+  quantity?: number;
 };
 
 const FilterCheckItem = ({
@@ -26,7 +26,7 @@ const FilterCheckItem = ({
         />
       </label>
       <p className="font-medium">{title}</p>
-      <span className="text-textSecondary">({quantity})</span>
+      {quantity && <span className="text-textSecondary">({quantity})</span>}
     </div>
   );
 };

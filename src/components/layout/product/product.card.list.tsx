@@ -32,18 +32,22 @@ const ProductCardList = () => {
   // };
   const searchParams = useSearchParams();
   const searchTextParam = searchParams.get("search")?.toLowerCase() || "";
+  const minPriceParam = Number(searchParams.get("minPrice"));
+  const maxPriceParam = Number(searchParams.get("maxPrice"));
 
   useEffect(() => {
-    if (searchTextParam) {
+    if (searchTextParam || minPriceParam || maxPriceParam) {
       const newData = data.filter((item) =>
-        item.name.toLowerCase().includes(searchTextParam)
+        item.name.toLowerCase().includes(searchTextParam) && minPriceParam
+          ? item.price > minPriceParam
+          : true && maxPriceParam && item.price < maxPriceParam
       );
       setData(newData);
     } else {
       setData(productList);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchTextParam]);
+  }, [searchTextParam, minPriceParam, maxPriceParam]);
   const handleClickViewBtn = (id: Id) => {
     const singleData = productList.find((item) => item.id === id);
     dispatch(handleShowPopupDetails(true));

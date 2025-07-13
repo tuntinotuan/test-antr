@@ -7,7 +7,7 @@ export const productList: ProductTypes[] = [
     name: "Học Toeic cấp tốc 550+",
     image: "toeic-550.jpg",
     price: 1500000,
-    des: "Learn data science, automation, build websites, games and apps!",
+    des: "Learn data science, automation, build websites, games and apps! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, ex! Temporibus, ipsam ipsum voluptates distinctio veniam ratione eligendi architecto amet, vitae atque odit quam neque suscipit assumenda asperiores repellendus cum officia nemo eaque incidunt. Quibusdam assumenda nemo quo fugit esse quia placeat voluptatibus fugiat adipisci, harum illum, excepturi rem omnis.",
     liked: false,
   },
   {
@@ -16,8 +16,8 @@ export const productList: ProductTypes[] = [
     name: "100 Days of Code: The Complete Python Pro BootcampMaster Python by building 100 projects in 100 days.",
     image: "toeic-750.jpg",
     price: 399000,
-    des: "Learn data science, automation, build websites, games and apps!",
-    liked: false,
+    des: "Learn data science, automation, build websites, games and apps! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, ex! Temporibus, ipsam ipsum voluptates distinctio veniam ratione eligendi architecto amet, vitae atque odit quam neque suscipit assumenda asperiores repellendus cum officia nemo eaque incidunt. Quibusdam assumenda nemo quo fugit esse quia placeat voluptatibus fugiat adipisci, harum illum, excepturi rem omnis.",
+    liked: true,
   },
   {
     id: 333,
@@ -25,7 +25,7 @@ export const productList: ProductTypes[] = [
     name: "Học Toeic cấp tốc 550+",
     image: "toeic-550.jpg",
     price: 1500000,
-    des: "Learn data science, automation, build websites, games and apps!",
+    des: "Learn data science, automation, build websites, games and apps! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, ex! Temporibus, ipsam ipsum voluptates distinctio veniam ratione eligendi architecto amet, vitae atque odit quam neque suscipit assumenda asperiores repellendus cum officia nemo eaque incidunt. Quibusdam assumenda nemo quo fugit esse quia placeat voluptatibus fugiat adipisci, harum illum, excepturi rem omnis.",
     liked: false,
   },
   {
@@ -34,7 +34,7 @@ export const productList: ProductTypes[] = [
     name: "100 Days of Code: The Complete Python Pro BootcampMaster Python by building 100 projects in 100 days.",
     image: "toeic.jpg",
     price: 399000,
-    des: "Learn data science, automation, build websites, games and apps!",
+    des: "Learn data science, automation, build websites, games and apps! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, ex! Temporibus, ipsam ipsum voluptates distinctio veniam ratione eligendi architecto amet, vitae atque odit quam neque suscipit assumenda asperiores repellendus cum officia nemo eaque incidunt. Quibusdam assumenda nemo quo fugit esse quia placeat voluptatibus fugiat adipisci, harum illum, excepturi rem omnis.",
     liked: false,
   },
   {
@@ -43,7 +43,7 @@ export const productList: ProductTypes[] = [
     name: "Học Toeic cấp tốc 550+",
     image: "toeic-550.jpg",
     price: 1500000,
-    des: "Learn data science, automation, build websites, games and apps!",
+    des: "Learn data science, automation, build websites, games and apps! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, ex! Temporibus, ipsam ipsum voluptates distinctio veniam ratione eligendi architecto amet, vitae atque odit quam neque suscipit assumenda asperiores repellendus cum officia nemo eaque incidunt. Quibusdam assumenda nemo quo fugit esse quia placeat voluptatibus fugiat adipisci, harum illum, excepturi rem omnis.",
     liked: false,
   },
   {
@@ -52,7 +52,7 @@ export const productList: ProductTypes[] = [
     name: "100 Days of Code: The Complete Python Pro BootcampMaster Python by building 100 projects in 100 days.",
     image: "toeic-750.jpg",
     price: 399000,
-    des: "Learn data science, automation, build websites, games and apps!",
+    des: "Learn data science, automation, build websites, games and apps! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, ex! Temporibus, ipsam ipsum voluptates distinctio veniam ratione eligendi architecto amet, vitae atque odit quam neque suscipit assumenda asperiores repellendus cum officia nemo eaque incidunt. Quibusdam assumenda nemo quo fugit esse quia placeat voluptatibus fugiat adipisci, harum illum, excepturi rem omnis.",
     liked: false,
   },
 ];

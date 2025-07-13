@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "../button/Button";
+import { convertNumberToComma } from "@/utils/process.number";
 
 const ProductContent = ({
   name,
@@ -18,9 +19,11 @@ const ProductContent = ({
       <p className="text-xs text-gray-500 font-semibold line-clamp-1 cursor-pointer">
         {describe}
       </p>
-      <p className="text-[#B71D18] text-xl font-semibold">{price}</p>
+      <p className="text-green-600 text-xl font-semibold">
+        ₫{convertNumberToComma(price)}
+      </p>
       <Button
-        className="text-blue600 bg-blue50"
+        className="text-green-500 bg-green-50"
         hover="hover:brightness-95"
         onClick={onClick}
       >

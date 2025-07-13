@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import SearchHeader from "../../search/SearchHeader";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import ButtonFavorite from "@/components/button/ButtonFavorite";
 
 const HeaderMain = () => {
   const router = useRouter();
@@ -39,7 +40,8 @@ const HeaderMain = () => {
         width={300}
         setValues={handleSearchProduct}
       ></SearchHeader>
-      <div className="absolute top-1 right-1">
+      <div className="absolute top-2 right-1 flex items-center gap-3">
+        <ButtonFavorite />
         <Image
           src="/avatar-black-umbrella.jpg"
           alt="Avatar Icon"
