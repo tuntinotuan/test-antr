@@ -3,8 +3,17 @@ import SearchHeader from "../../search/SearchHeader";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import ButtonFavorite from "@/components/button/ButtonFavorite";
+import { RootState } from "@/store/store";
+import { useSelector } from "react-redux";
 
-const HeaderMain = () => {
+const HeaderMain = ({
+  pageTitle,
+  hiddenSearch = false,
+}: {
+  pageTitle?: string;
+  hiddenSearch?: boolean;
+}) => {
+  const { productList } = useSelector((state: RootState) => state.product);
   const router = useRouter();
   const [scrollData, setScrollData] = useState({
     scrollTop: 0,
@@ -29,19 +38,27 @@ const HeaderMain = () => {
     params.set("search", value);
     router.push(`?${params.toString()}`);
   };
+  const quantityFavorite = productList.filter(
+    (item) => item.liked === true
+  ).length;
   return (
     <div
       className={`sticky top-0 flex items-center justify-center p-1 bg-white bg-opacity-60 backdrop-blur-sm z-20 ${
         scrollData.scrollTop > 0 ? "shadow-lg" : ""
       }`}
     >
-      <SearchHeader
-        placeholder="Tìm kiếm khoá học..."
-        width={300}
-        setValues={handleSearchProduct}
-      ></SearchHeader>
+      {pageTitle && (
+        <h1 className="px-2 py-1 text-2xl font-bold">{pageTitle}</h1>
+      )}
+      {!hiddenSearch && (
+        <SearchHeader
+          placeholder="Tìm kiếm khoá học..."
+          width={300}
+          setValues={handleSearchProduct}
+        ></SearchHeader>
+      )}
       <div className="absolute top-2 right-1 flex items-center gap-3">
-        <ButtonFavorite />
+        <ButtonFavorite quantity={quantityFavorite} />
         <Image
           src="/avatar-black-umbrella.jpg"
           alt="Avatar Icon"
