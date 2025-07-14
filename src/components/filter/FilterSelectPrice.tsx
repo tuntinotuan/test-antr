@@ -13,8 +13,7 @@ const FilterSelectPrice = ({
   const [priceFrom, setPriceFrom] = useState("");
   const [priceTo, setPriceTo] = useState("");
   return (
-    <div className="w-[200px] flex flex-col gap-2 text-xs">
-      <p>Khoảng giá</p>
+    <div className="w-[200px] flex flex-col gap-2 p-2 text-xs">
       <div className="w-full grid grid-cols-2 gap-2">
         <input
           defaultValue={fromDefaultValue}

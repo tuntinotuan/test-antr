@@ -3,6 +3,7 @@ import { Roboto_Mono } from "next/font/google";
 import "../styles/_reset-css.css";
 import "./globals.css";
 import Providers from "./providers";
+import { NotifyProvider } from "@/contexts/notifyStates";
 
 const robotoMono = Roboto_Mono({
   subsets: ["latin"],
@@ -24,7 +25,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`text-textPrimary bg-gray-50`}>
-        <Providers>{children}</Providers>
+        <Providers>
+          <NotifyProvider>{children}</NotifyProvider>
+        </Providers>
       </body>
     </html>
   );

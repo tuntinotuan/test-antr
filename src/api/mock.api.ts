@@ -23,7 +23,7 @@ export const productListFakeData: ProductTypes[] = [
     id: 333,
     kind: "course",
     name: "Học Toeic cấp tốc 550+",
-    image: "toeic-550.jpg",
+    image: "toeic-990.jpg",
     price: 1500000,
     des: "Learn data science, automation, build websites, games and apps! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, ex! Temporibus, ipsam ipsum voluptates distinctio veniam ratione eligendi architecto amet, vitae atque odit quam neque suscipit assumenda asperiores repellendus cum officia nemo eaque incidunt. Quibusdam assumenda nemo quo fugit esse quia placeat voluptatibus fugiat adipisci, harum illum, excepturi rem omnis.",
     liked: false,

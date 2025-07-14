@@ -5,6 +5,7 @@ import FilterSelectPrice from "@/components/filter/FilterSelectPrice";
 import FilterMain from "@/components/layout/filter/filter.main";
 import HeaderMain from "@/components/layout/header/header.main";
 import ProductCardList from "@/components/layout/product/product.card.list";
+import NotifyNormal from "@/components/notify/NotifyNormal";
 import ProductCard from "@/components/product/ProductCard";
 import { useHydrate } from "@/hooks/useHydrate";
 import { handleUpdateProductList } from "@/store/slices/productSlice";
@@ -26,6 +27,7 @@ export default function Home() {
   if (!hydrated) return null; // or a skeleton/placeholder
   return (
     <div className="relative">
+      <NotifyNormal></NotifyNormal>
       <HeaderMain></HeaderMain>
       <FilterMain></FilterMain>
       <ProductCardList listData={productList}></ProductCardList>

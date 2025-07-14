@@ -44,7 +44,7 @@ const HeaderMain = ({
   ).length;
   return (
     <div
-      className={`sticky top-0 flex items-center justify-center p-1 bg-white bg-opacity-60 backdrop-blur-sm z-20 ${
+      className={`sticky top-0 flex items-center justify-center p-1 bg-white bg-opacity-60 backdrop-blur-sm z-[99] ${
         scrollData.scrollTop > 0 ? "shadow-lg" : ""
       }`}
     >

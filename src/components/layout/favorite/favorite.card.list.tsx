@@ -1,3 +1,4 @@
+import FavoriteEmpty from "@/components/empty/FavoriteEmpty";
 import ProductCard from "@/components/product/ProductCard";
 import {
   handleGetDetailsData,
@@ -30,22 +31,28 @@ const FavoriteCardList = () => {
     setData(newFavoriteData.filter((item) => item.id !== id));
   };
   return (
-    <div className="flex items-start justify-center flex-wrap gap-4 my-5">
-      {data.map((product) => (
-        <ProductCard
-          key={product.id}
-          imageSrc={product.image}
-          name={product.name}
-          describe={product.des}
-          price={product.price}
-          favorite={product.liked}
-          onClickDetailsBtn={() => handleClickViewBtn(product.id)}
-          onClickFavoriteBtn={() =>
-            handleClickFavoriteBtn(product.id, product.liked)
-          }
-        ></ProductCard>
-      ))}
-    </div>
+    <>
+      {data.length > 0 ? (
+        <div className="flex items-start justify-center flex-wrap gap-4 my-5">
+          {data.map((product) => (
+            <ProductCard
+              key={product.id}
+              imageSrc={product.image}
+              name={product.name}
+              describe={product.des}
+              price={product.price}
+              favorite={product.liked}
+              onClickDetailsBtn={() => handleClickViewBtn(product.id)}
+              onClickFavoriteBtn={() =>
+                handleClickFavoriteBtn(product.id, product.liked)
+              }
+            ></ProductCard>
+          ))}
+        </div>
+      ) : (
+        <FavoriteEmpty />
+      )}
+    </>
   );
 };
 

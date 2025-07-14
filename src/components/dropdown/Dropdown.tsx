@@ -30,7 +30,7 @@ const Dropdown = ({
           isHovered ? `${activeClassName} rounded-br-none rounded-bl-none` : ""
         }`}
       >
-        <MenuRoundedIcon></MenuRoundedIcon>
+        {/* <MenuRoundedIcon></MenuRoundedIcon> */}
         {name}
         <ArrowDownIcon
           className={`transition-all ${isHovered ? "-rotate-180" : ""}`}
