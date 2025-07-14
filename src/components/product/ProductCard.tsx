@@ -33,7 +33,7 @@ const ProductCard = ({
         favorite={favorite}
         onClick={onClickFavoriteBtn ? onClickFavoriteBtn : () => {}}
       ></ProductFavorite>
-      <ProductImage src={imageSrc} alt="product-image-1" />
+      <ProductImage src={imageSrc} alt={name} />
       <ProductContent
         name={name}
         describe={describe}

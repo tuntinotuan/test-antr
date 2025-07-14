@@ -19,6 +19,8 @@ const config: Config = {
         "13in": "1390px",
       },
       colors: {
+        primaryColor: "#7731d8",
+        secondaryColor: "#01C4CD",
         primaryHover: "#e7e6f3",
         primaryYellow: "#FACA4A",
         homeBodyBg: "#F4F6F8",

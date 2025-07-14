@@ -9,10 +9,7 @@ const FavoritePage = () => {
   if (!hydrated) return null;
   return (
     <div>
-      <HeaderMain
-        pageTitle="Sản phẩm yêu thích của Bạn"
-        hiddenSearch
-      ></HeaderMain>
+      <HeaderMain pageTitle="Danh sách yêu thích" hiddenSearch></HeaderMain>
       <FavoriteCardList></FavoriteCardList>
     </div>
   );

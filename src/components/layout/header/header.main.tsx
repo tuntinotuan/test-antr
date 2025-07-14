@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import ButtonFavorite from "@/components/button/ButtonFavorite";
 import { RootState } from "@/store/store";
 import { useSelector } from "react-redux";
+import HeaderLogo from "@/components/logo/header.logo";
 
 const HeaderMain = ({
   pageTitle,
@@ -50,6 +51,9 @@ const HeaderMain = ({
       {pageTitle && (
         <h1 className="px-2 py-1 text-2xl font-bold">{pageTitle}</h1>
       )}
+      <div className="absolute top-1/2 -translate-y-1/2 left-2">
+        <HeaderLogo></HeaderLogo>
+      </div>
       {!hiddenSearch && (
         <SearchHeader
           placeholder="Tìm kiếm khoá học..."

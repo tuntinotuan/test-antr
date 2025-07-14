@@ -5,14 +5,14 @@ import {
   handleUpdateProductList,
 } from "@/store/slices/productSlice";
 import { RootState } from "@/store/store";
-import { Id } from "@/types/product";
+import { Id, ProductTypes } from "@/types/product";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 const FavoriteCardList = () => {
   const { productList } = useSelector((state: RootState) => state.product);
   const newFavoriteData = productList.filter((item) => item.liked);
-  const [data, setData] = useState(newFavoriteData);
+  const [data, setData] = useState<ProductTypes[]>(newFavoriteData);
   const dispatch = useDispatch();
   useEffect(() => {}, []);
   const handleClickViewBtn = (id: Id) => {
