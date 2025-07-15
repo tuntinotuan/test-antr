@@ -17,7 +17,7 @@ export const productListFakeData: ProductTypes[] = [
     image: "toeic-750.jpg",
     price: 399000,
     des: "Learn data science, automation, build websites, games and apps! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, ex! Temporibus, ipsam ipsum voluptates distinctio veniam ratione eligendi architecto amet, vitae atque odit quam neque suscipit assumenda asperiores repellendus cum officia nemo eaque incidunt. Quibusdam assumenda nemo quo fugit esse quia placeat voluptatibus fugiat adipisci, harum illum, excepturi rem omnis.",
-    liked: true,
+    liked: false,
   },
   {
     id: 333,

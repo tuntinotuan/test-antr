@@ -19,8 +19,9 @@ const ProductCardList = ({ listData }: { listData: ProductTypes[] }) => {
   const { showPopupDetails, productList } = useSelector(
     (state: RootState) => state.product
   );
-  const { title, activeNormal, setActiveNormal, setTitle } = useNotify();
+  const { setActiveNormal, setTitle } = useNotify();
   const [data, setData] = useState(productList);
+  const [loading, setLoading] = useState<boolean>(true);
   const dispatch = useDispatch();
   // const [items, setItems] = useState(productList);
   // const [hasMore, setHasMore] = useState(true);
@@ -40,16 +41,23 @@ const ProductCardList = ({ listData }: { listData: ProductTypes[] }) => {
   const maxPriceParam = Number(searchParams.get("maxPrice"));
 
   useEffect(() => {
-    if (searchTextParam || minPriceParam || maxPriceParam) {
-      const newData = data.filter((item) =>
-        item.name.toLowerCase().includes(searchTextParam) && minPriceParam
-          ? item.price > minPriceParam
-          : true && maxPriceParam && item.price < maxPriceParam
-      );
-      setData(newData);
-    } else {
-      setData(data);
+    setLoading(true);
+    async function fetchData() {
+      if (searchTextParam || minPriceParam || maxPriceParam) {
+        const newData = data.filter((item) =>
+          item.name.toLowerCase().includes(searchTextParam) && minPriceParam
+            ? item.price > minPriceParam
+            : true && maxPriceParam && item.price < maxPriceParam
+        );
+        setData(newData);
+      } else {
+        setData(data);
+      }
+      setTimeout(() => {
+        setLoading(false);
+      }, 500);
     }
+    fetchData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchTextParam, minPriceParam, maxPriceParam]);
   const handleClickViewBtn = (id: Id) => {
@@ -72,30 +80,35 @@ const ProductCardList = ({ listData }: { listData: ProductTypes[] }) => {
   };
   return (
     <>
-      {data.length > 0 ? (
-        <div className="flex items-start justify-center flex-wrap gap-4 my-5">
-          <PopupViewDetails
-            show={showPopupDetails}
-            onClose={() => dispatch(handleShowPopupDetails(false))}
-          ></PopupViewDetails>
-          {data.map((product) => (
-            <ProductCard
-              key={product.id}
-              imageSrc={product.image}
-              name={product.name}
-              describe={product.des}
-              price={product.price}
-              favorite={product.liked}
-              onClickDetailsBtn={() => handleClickViewBtn(product.id)}
-              onClickFavoriteBtn={() =>
-                handleClickFavoriteBtn(product.id, product.liked)
-              }
-            ></ProductCard>
-          ))}
-        </div>
-      ) : (
-        <ProductEmpty />
+      {!loading && (
+        <>
+          {data.length > 0 ? (
+            <div className="flex items-start justify-center flex-wrap gap-4 my-5">
+              <PopupViewDetails
+                show={showPopupDetails}
+                onClose={() => dispatch(handleShowPopupDetails(false))}
+              ></PopupViewDetails>
+              {data.map((product) => (
+                <ProductCard
+                  key={product.id}
+                  imageSrc={product.image}
+                  name={product.name}
+                  describe={product.des}
+                  price={product.price}
+                  favorite={product.liked}
+                  onClickDetailsBtn={() => handleClickViewBtn(product.id)}
+                  onClickFavoriteBtn={() =>
+                    handleClickFavoriteBtn(product.id, product.liked)
+                  }
+                ></ProductCard>
+              ))}
+            </div>
+          ) : (
+            <ProductEmpty />
+          )}
+        </>
       )}
+      {loading && <SkeletonProductCard></SkeletonProductCard>}
     </>
     // <InfiniteScroll
     //   dataLength={items.length}
