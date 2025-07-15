@@ -7,7 +7,7 @@ import "swiper/css/pagination";
 import ProductCard from "../product/ProductCard";
 import ArrowLeftIcon from "../icons/arrow/ArrowLeftIcon";
 import ArrowRightIcon from "../icons/arrow/ArrowRightIcon";
-import { slideProductLists } from "@/api/mock.api";
+// import { slideProductLists } from "@/api/mock.api";
 
 const SlideProduct = () => {
   const prevRef = useRef<HTMLButtonElement | null>(null);
@@ -35,11 +35,11 @@ const SlideProduct = () => {
         autoplay={{ delay: 3000 }}
         loop
       >
-        {slideProductLists.map((item, index) => (
+        {/* {slideProductLists.map((item, index) => (
           <SwiperSlide key={index}>
             <ProductCard imageSrc={item.image}></ProductCard>
           </SwiperSlide>
-        ))}
+        ))} */}
       </Swiper>
       {/* Custom buttons */}
       <button

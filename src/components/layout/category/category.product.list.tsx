@@ -1,4 +1,3 @@
-import { categoryProductList } from "@/api/mock.api";
 import ArrowRightIcon from "@/components/icons/arrow/ArrowRightIcon";
 import ProductCard from "@/components/product/ProductCard";
 import React from "react";
@@ -14,14 +13,14 @@ const CategoryProductList = () => {
         </div>
       </div>
       <div className="flex items-center justify-around flex-wrap gap-2 mt-6">
-        {categoryProductList.map((item) => (
+        {/* {categoryProductList.map((item) => (
           <ProductCard
             imageSrc={item.image}
             key={item.image}
             cardWidth={195}
             hiddenBtnBuy
           ></ProductCard>
-        ))}
+        ))} */}
       </div>
     </>
   );

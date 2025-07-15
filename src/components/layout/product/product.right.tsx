@@ -6,7 +6,7 @@ const ProductRight = () => {
   return (
     <div className="flex-1">
       <ProductMenuFilter />
-      <ProductCardList />
+      {/* <ProductCardList /> */}
     </div>
   );
 };
