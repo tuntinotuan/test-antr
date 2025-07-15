@@ -43,15 +43,13 @@ const ProductCardList = ({ listData }: { listData: ProductTypes[] }) => {
   useEffect(() => {
     setLoading(true);
     async function fetchData() {
-      if (searchTextParam || minPriceParam || maxPriceParam) {
-        const newData = data.filter((item) =>
-          item.name.toLowerCase().includes(searchTextParam) && minPriceParam
-            ? item.price > minPriceParam
-            : true && maxPriceParam && item.price < maxPriceParam
+      if (searchTextParam) {
+        const newData = productList.filter((item) =>
+          item.name.toLowerCase().includes(searchTextParam)
         );
         setData(newData);
       } else {
-        setData(data);
+        setData(productList);
       }
       setTimeout(() => {
         setLoading(false);
@@ -59,7 +57,26 @@ const ProductCardList = ({ listData }: { listData: ProductTypes[] }) => {
     }
     fetchData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchTextParam, minPriceParam, maxPriceParam]);
+  }, [searchTextParam]);
+  useEffect(() => {
+    setLoading(true);
+    if (minPriceParam || maxPriceParam) {
+      const newData = productList.filter((item) => {
+        if (!maxPriceParam || maxPriceParam === 0)
+          return item.price > minPriceParam;
+        if (!minPriceParam || minPriceParam === 0)
+          return item.price < maxPriceParam;
+        item.price > minPriceParam && item.price < maxPriceParam;
+      });
+      setData(newData);
+    } else {
+      setData(productList);
+    }
+    setTimeout(() => {
+      setLoading(false);
+    }, 500);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [minPriceParam, maxPriceParam]);
   const handleClickViewBtn = (id: Id) => {
     const singleData = productList.find((item) => item.id === id);
     dispatch(handleShowPopupDetails(true));
