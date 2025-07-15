@@ -1,7 +1,7 @@
 # Run NextJS Project
 
 ```bash
-cd .\test-fs\
+cd .\test-antr\
 # then
 npm install
 # last
@@ -10,7 +10,7 @@ npm run dev
 
 ## 🚀 Demo
 
-[Live Demo](https://sunfil-ecommerce.netlify.app/)
+[Live Demo](https://educationecommerce.netlify.app/)
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
