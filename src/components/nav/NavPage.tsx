@@ -22,7 +22,7 @@ const NavPage = ({ listPage }: NavPageProps) => {
           >
             {item.text}
           </p>
-          {listPage.length - 1 !== index && <ArrowRightIcon></ArrowRightIcon>}
+          {listPage?.length - 1 !== index && <ArrowRightIcon></ArrowRightIcon>}
         </Link>
       ))}
       {/* <p className="font-bold text-blue700 cursor-pointer">Sản phẩm</p> */}

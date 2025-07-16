@@ -7,8 +7,13 @@ import CartItem from "../cart/CartItem";
 import { useHover } from "usehooks-ts";
 import HistoryItem from "../history/HistoryItem";
 import { RootState } from "@/store/store";
-import { useSelector } from "react-redux";
-import { ProductTypes } from "@/types/product";
+import { useDispatch, useSelector } from "react-redux";
+import { Id, ProductTypes } from "@/types/product";
+import {
+  handleGetDetailsData,
+  handleShowPopupDetails,
+  handleUpdateClickedHistories,
+} from "@/store/slices/productSlice";
 const cartList = [
   {
     img: "/product-image-1.png",
@@ -75,6 +80,8 @@ const ShowHistory = ({
     (state: RootState) => state.product
   );
   const [historyData, setHistoryData] = useState<ProductTypes[]>(productList);
+  const dispatch = useDispatch();
+
   useEffect(() => {
     if (!rect) return;
     const tooltipOffset = 0; // distance from the element
@@ -86,7 +93,7 @@ const ShowHistory = ({
     };
     // const positionRight = rect.left > window.innerWidth / 2;
     style = {
-      top: rect.top + scrollY + rect.height - tooltipOffset,
+      top: rect.top + rect.height - tooltipOffset,
       left: rect.left + rect.width,
       minWidth: rect.width,
       transform: "translate(-100%, 0)",
@@ -95,9 +102,9 @@ const ShowHistory = ({
     setTooltipStyle(style);
   }, [rect, isHovered]);
   useEffect(() => {
-    if (clickedHistories.length > 0) {
+    if (clickedHistories?.length > 0) {
       let newHistoryData: ProductTypes[] = [];
-      for (let index = 0; index < clickedHistories.length; index++) {
+      for (let index = 0; index < clickedHistories?.length; index++) {
         const newData = productList.find(
           (item) => item.id === clickedHistories[index]
         );
@@ -108,6 +115,14 @@ const ShowHistory = ({
     console.log("historyData", historyData);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [clickedHistories]);
+  const handleClickViewBtn = (id: Id) => {
+    const singleData = productList.find((item) => item.id === id);
+    dispatch(handleShowPopupDetails(true));
+    dispatch(handleGetDetailsData(singleData));
+    //
+    const newHistories = clickedHistories.filter((num) => num !== id);
+    dispatch(handleUpdateClickedHistories([id, ...newHistories]));
+  };
   return (
     <div
       className={`fixed transition-all z-50 ${
@@ -115,14 +130,16 @@ const ShowHistory = ({
       }`}
       style={{ ...tooltipStyle }}
     >
-      <div className="w-[320px] h-[380px] flex flex-col gap-1 bg-white p-2 rounded border border-gray-100 overflow-y-auto">
+      <div className="w-[320px] h-[350px] flex flex-col gap-1 bg-white p-2 rounded border border-gray-100 shadow-lg overflow-y-auto">
         {historyData.map((item) => (
           <HistoryItem
             key={item.id}
+            id={item.id}
             src={item.image}
             alt={item.name}
             title={item.name}
             price={item.price}
+            onClick={handleClickViewBtn}
           ></HistoryItem>
         ))}
       </div>

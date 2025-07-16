@@ -104,7 +104,7 @@ const ProductCardList = ({ listData }: { listData: ProductTypes[] }) => {
     <div className="px-2">
       {!loading && (
         <>
-          {data.length > 0 ? (
+          {data?.length > 0 ? (
             <div className="flex items-start justify-center flex-wrap gap-4 my-5">
               <PopupViewDetails
                 show={showPopupDetails}

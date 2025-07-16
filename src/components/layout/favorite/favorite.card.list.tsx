@@ -32,7 +32,7 @@ const FavoriteCardList = () => {
   };
   return (
     <>
-      {data.length > 0 ? (
+      {data?.length > 0 ? (
         <div className="flex items-start justify-center flex-wrap gap-4 my-5">
           {data.map((product) => (
             <ProductCard

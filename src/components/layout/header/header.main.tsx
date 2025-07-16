@@ -45,7 +45,7 @@ const HeaderMain = ({
   };
   const quantityFavorite = productList.filter(
     (item) => item.liked === true
-  ).length;
+  )?.length;
   return (
     <div
       className={`sticky top-0 flex items-center justify-center p-1 bg-white bg-opacity-60 backdrop-blur-sm z-[99] ${
@@ -68,7 +68,7 @@ const HeaderMain = ({
       <div className="absolute top-2 right-1 flex items-center gap-3">
         {/* <ButtonCart></ButtonCart> */}
         <ButtonFavorite quantity={quantityFavorite} />
-        <ButtonHistory quantity={clickedHistories.length} />
+        <ButtonHistory quantity={clickedHistories?.length} />
         <Image
           src="/avatar-black-umbrella.jpg"
           alt="Avatar Icon"
