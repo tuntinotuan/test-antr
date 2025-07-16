@@ -5,7 +5,7 @@ const SearchIcon = ({ ...rest }) => {
   return (
     <SearchRoundedIcon
       fontSize="inherit"
-      className="opacity-0 group-hover:opacity-100"
+      // className="opacity-0 group-hover:opacity-100"
       {...rest}
     />
   );

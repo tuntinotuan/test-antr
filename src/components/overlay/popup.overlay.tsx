@@ -4,7 +4,7 @@ import PortalOverlay from "./portal.overlay";
 
 type PopupOverlayInterface = {
   children: React.ReactNode;
-  width: number | string;
+  width?: number | string;
   selector?: string;
   show?: boolean;
   onClick?: () => void;

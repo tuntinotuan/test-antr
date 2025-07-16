@@ -34,7 +34,9 @@ const HistoryItem = ({
         unoptimized
       ></Image>
       <div className="flex flex-col gap-2">
-        <p className="font-bold truncate max-w-[200px]">{title}</p>
+        <p className="max-600pixel:max-w-[120px] font-bold truncate max-w-[200px]">
+          {title}
+        </p>
         <span className="text-green-600 text-xl font-semibold">
           ₫{convertNumberToComma(price)}
         </span>

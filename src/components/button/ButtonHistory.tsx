@@ -131,7 +131,7 @@ const ShowHistory = ({
       }`}
       style={{ ...tooltipStyle }}
     >
-      <div className="w-[320px] max-h-[350px] flex flex-col gap-1 bg-white p-2 rounded border border-gray-100 shadow-lg overflow-y-auto">
+      <div className="max-600pixel:w-[250px] w-[320px] max-h-[350px] flex flex-col gap-1 bg-white p-2 rounded border border-gray-100 shadow-lg overflow-y-auto">
         {historyData?.map((item) => (
           <HistoryItem
             key={item.id}

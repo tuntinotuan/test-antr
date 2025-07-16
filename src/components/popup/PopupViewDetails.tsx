@@ -18,8 +18,8 @@ const PopupViewDetails = ({
     <PopupOverlay
       show={show}
       onClick={onClose}
-      width={`70%`}
-      className="bg-white"
+      // width={`70%`}
+      className="max-md:w-[95%] w-[70%] bg-white"
     >
       <CloseIcon onClick={onClose} className="absolute top-3 right-3" />
       <LocalBody onClose={onClose} />
@@ -37,8 +37,8 @@ const LocalBody = ({ onClose }: { onClose: any }) => {
     onClose();
   };
   return (
-    <div className="w-full flex gap-4">
-      <div className="w-1/3 shrink-0">
+    <div className="max-md:flex-col w-full flex gap-4">
+      <div className="max-md:w-full w-1/3 shrink-0">
         <ProductImage
           src={detailsData.image}
           alt={detailsData.name}
