@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import SearchHeader from "../../search/SearchHeader";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import ButtonFavorite from "@/components/button/ButtonFavorite";
 import { RootState } from "@/store/store";
 import { useSelector } from "react-redux";
@@ -20,6 +20,7 @@ const HeaderMain = ({
     (state: RootState) => state.product
   );
   const router = useRouter();
+  const searchParams = useSearchParams();
   const [scrollData, setScrollData] = useState({
     scrollTop: 0,
     scrollHeight: 0,
@@ -39,9 +40,15 @@ const HeaderMain = ({
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   const handleSearchProduct = (value: string) => {
-    const params = new URLSearchParams(window.location.search);
-    params.set("search", value);
-    router.push(`?${params.toString()}`);
+    const params = new URLSearchParams(searchParams.toString());
+    if (value) {
+      params.set("search", value);
+      router.push(`?${params.toString()}`);
+    } else {
+      params.delete("search");
+      const newQuery = params.toString();
+      router.replace(`?${newQuery}`, { scroll: false });
+    }
   };
   const quantityFavorite = productList.filter(
     (item) => item.liked === true
