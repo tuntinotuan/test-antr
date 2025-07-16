@@ -96,7 +96,7 @@ const ProductCardList = ({ listData }: { listData: ProductTypes[] }) => {
     }
   };
   return (
-    <>
+    <div className="px-2">
       {!loading && (
         <>
           {data.length > 0 ? (
@@ -126,7 +126,7 @@ const ProductCardList = ({ listData }: { listData: ProductTypes[] }) => {
         </>
       )}
       {loading && <SkeletonProductCard></SkeletonProductCard>}
-    </>
+    </div>
     // <InfiniteScroll
     //   dataLength={items.length}
     //   next={fetchMoreData}
