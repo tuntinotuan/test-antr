@@ -7,7 +7,6 @@ import { RootState } from "@/store/store";
 import { useSelector } from "react-redux";
 import HeaderLogo from "@/components/logo/header.logo";
 import ButtonHistory from "@/components/button/ButtonHistory";
-import ButtonCart from "@/components/button/ButtonCart";
 
 const HeaderMain = ({
   pageTitle,

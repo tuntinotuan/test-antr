@@ -13,7 +13,7 @@ export const productListFakeData: ProductTypes[] = [
   {
     id: 222,
     kind: "course",
-    name: "100 Days of Code: The Complete Python Pro BootcampMaster Python by building 100 projects in 100 days.",
+    name: "Khoá 750+ Toeic, cho người từ 500+ muốn mục tiêu 750+",
     image: "toeic-750.jpg",
     price: 399000,
     des: "Learn data science, automation, build websites, games and apps! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, ex! Temporibus, ipsam ipsum voluptates distinctio veniam ratione eligendi architecto amet, vitae atque odit quam neque suscipit assumenda asperiores repellendus cum officia nemo eaque incidunt. Quibusdam assumenda nemo quo fugit esse quia placeat voluptatibus fugiat adipisci, harum illum, excepturi rem omnis.",
@@ -22,7 +22,7 @@ export const productListFakeData: ProductTypes[] = [
   {
     id: 333,
     kind: "course",
-    name: "Học Toeic cấp tốc 550+",
+    name: "990 Toeic có thực sự dễ? trick?",
     image: "toeic-990.jpg",
     price: 500000,
     des: "Learn data science, automation, build websites, games and apps! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, ex! Temporibus, ipsam ipsum voluptates distinctio veniam ratione eligendi architecto amet, vitae atque odit quam neque suscipit assumenda asperiores repellendus cum officia nemo eaque incidunt. Quibusdam assumenda nemo quo fugit esse quia placeat voluptatibus fugiat adipisci, harum illum, excepturi rem omnis.",
@@ -31,7 +31,7 @@ export const productListFakeData: ProductTypes[] = [
   {
     id: 444,
     kind: "course",
-    name: "100 Days of Code: The Complete Python Pro BootcampMaster Python by building 100 projects in 100 days.",
+    name: "Cẩm nang Toeic cho người mới bắt đầu từ con số 0",
     image: "toeic.jpg",
     price: 499000,
     des: "Learn data science, automation, build websites, games and apps! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, ex! Temporibus, ipsam ipsum voluptates distinctio veniam ratione eligendi architecto amet, vitae atque odit quam neque suscipit assumenda asperiores repellendus cum officia nemo eaque incidunt. Quibusdam assumenda nemo quo fugit esse quia placeat voluptatibus fugiat adipisci, harum illum, excepturi rem omnis.",
@@ -40,8 +40,8 @@ export const productListFakeData: ProductTypes[] = [
   {
     id: 555,
     kind: "course",
-    name: "Học Toeic cấp tốc 550+",
-    image: "toeic-550.jpg",
+    name: "Ielts cho người có tiếng anh cơ bản",
+    image: "ielts.jpg",
     price: 999000,
     des: "Learn data science, automation, build websites, games and apps! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, ex! Temporibus, ipsam ipsum voluptates distinctio veniam ratione eligendi architecto amet, vitae atque odit quam neque suscipit assumenda asperiores repellendus cum officia nemo eaque incidunt. Quibusdam assumenda nemo quo fugit esse quia placeat voluptatibus fugiat adipisci, harum illum, excepturi rem omnis.",
     liked: false,
@@ -49,8 +49,8 @@ export const productListFakeData: ProductTypes[] = [
   {
     id: 666,
     kind: "course",
-    name: "100 Days of Code: The Complete Python Pro BootcampMaster Python by building 100 projects in 100 days.",
-    image: "toeic-750.jpg",
+    name: "7.0 Ielts? 100 Days of Learning: The Complete Python Pro BootcampMaster Python by building 100 projects in 100 days.",
+    image: "7.0-ielts.png",
     price: 2000000,
     des: "Learn data science, automation, build websites, games and apps! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, ex! Temporibus, ipsam ipsum voluptates distinctio veniam ratione eligendi architecto amet, vitae atque odit quam neque suscipit assumenda asperiores repellendus cum officia nemo eaque incidunt. Quibusdam assumenda nemo quo fugit esse quia placeat voluptatibus fugiat adipisci, harum illum, excepturi rem omnis.",
     liked: false,

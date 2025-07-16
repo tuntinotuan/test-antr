@@ -79,7 +79,7 @@ const ShowHistory = ({
   const { productList, clickedHistories } = useSelector(
     (state: RootState) => state.product
   );
-  const [historyData, setHistoryData] = useState<ProductTypes[]>(productList);
+  const [historyData, setHistoryData] = useState<ProductTypes[]>();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -123,6 +123,7 @@ const ShowHistory = ({
     const newHistories = clickedHistories.filter((num) => num !== id);
     dispatch(handleUpdateClickedHistories([id, ...newHistories]));
   };
+  if (!historyData) return;
   return (
     <div
       className={`fixed transition-all z-50 ${
@@ -130,8 +131,8 @@ const ShowHistory = ({
       }`}
       style={{ ...tooltipStyle }}
     >
-      <div className="w-[320px] h-[350px] flex flex-col gap-1 bg-white p-2 rounded border border-gray-100 shadow-lg overflow-y-auto">
-        {historyData.map((item) => (
+      <div className="w-[320px] max-h-[350px] flex flex-col gap-1 bg-white p-2 rounded border border-gray-100 shadow-lg overflow-y-auto">
+        {historyData?.map((item) => (
           <HistoryItem
             key={item.id}
             id={item.id}
