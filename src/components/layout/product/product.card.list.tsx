@@ -6,6 +6,7 @@ import { useNotify } from "@/contexts/notifyStates";
 import {
   handleGetDetailsData,
   handleShowPopupDetails,
+  handleUpdateClickedHistories,
   handleUpdateProductList,
 } from "@/store/slices/productSlice";
 import { RootState } from "@/store/store";
@@ -16,7 +17,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { useDispatch, useSelector } from "react-redux";
 
 const ProductCardList = ({ listData }: { listData: ProductTypes[] }) => {
-  const { showPopupDetails, productList } = useSelector(
+  const { showPopupDetails, productList, clickedHistories } = useSelector(
     (state: RootState) => state.product
   );
   const { setActiveNormal, setTitle } = useNotify();
@@ -81,6 +82,9 @@ const ProductCardList = ({ listData }: { listData: ProductTypes[] }) => {
     const singleData = productList.find((item) => item.id === id);
     dispatch(handleShowPopupDetails(true));
     dispatch(handleGetDetailsData(singleData));
+    //
+    const newHistories = clickedHistories.filter((num) => num !== id);
+    dispatch(handleUpdateClickedHistories([id, ...newHistories]));
   };
   const handleClickFavoriteBtn = (id: Id, liked: boolean) => {
     console.log("favorite", id, liked);
@@ -95,6 +99,7 @@ const ProductCardList = ({ listData }: { listData: ProductTypes[] }) => {
       setTitle("Đã thêm vào yêu thích");
     }
   };
+  console.log("clickedHistories", clickedHistories);
   return (
     <div className="px-2">
       {!loading && (

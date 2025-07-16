@@ -1,11 +1,12 @@
 import { productListFakeData } from "@/api/mock.api";
-import { ProductTypes } from "@/types/product";
+import { Id, ProductTypes } from "@/types/product";
 import { createSlice } from "@reduxjs/toolkit";
 
 interface ProductState {
   showPopupDetails: boolean;
   detailsData: ProductTypes;
   productList: ProductTypes[];
+  clickedHistories: Id[];
 }
 
 const initialState: ProductState = {
@@ -20,6 +21,7 @@ const initialState: ProductState = {
     liked: false,
   },
   productList: productListFakeData,
+  clickedHistories: [],
 };
 
 const productSlice = createSlice({
@@ -38,6 +40,10 @@ const productSlice = createSlice({
       ...state,
       productList: action.payload,
     }),
+    handleUpdateClickedHistories: (state, action) => ({
+      ...state,
+      clickedHistories: action.payload,
+    }),
   },
 });
 
@@ -45,5 +51,6 @@ export const {
   handleShowPopupDetails,
   handleGetDetailsData,
   handleUpdateProductList,
+  handleUpdateClickedHistories,
 } = productSlice.actions;
 export default productSlice.reducer;

@@ -6,6 +6,8 @@ import ButtonFavorite from "@/components/button/ButtonFavorite";
 import { RootState } from "@/store/store";
 import { useSelector } from "react-redux";
 import HeaderLogo from "@/components/logo/header.logo";
+import ButtonHistory from "@/components/button/ButtonHistory";
+import ButtonCart from "@/components/button/ButtonCart";
 
 const HeaderMain = ({
   pageTitle,
@@ -14,7 +16,9 @@ const HeaderMain = ({
   pageTitle?: string;
   hiddenSearch?: boolean;
 }) => {
-  const { productList } = useSelector((state: RootState) => state.product);
+  const { productList, clickedHistories } = useSelector(
+    (state: RootState) => state.product
+  );
   const router = useRouter();
   const [scrollData, setScrollData] = useState({
     scrollTop: 0,
@@ -62,7 +66,9 @@ const HeaderMain = ({
         ></SearchHeader>
       )}
       <div className="absolute top-2 right-1 flex items-center gap-3">
+        {/* <ButtonCart></ButtonCart> */}
         <ButtonFavorite quantity={quantityFavorite} />
+        <ButtonHistory quantity={clickedHistories.length} />
         <Image
           src="/avatar-black-umbrella.jpg"
           alt="Avatar Icon"
