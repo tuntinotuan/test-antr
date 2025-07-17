@@ -11,7 +11,7 @@ const ProductFavorite = ({
 }) => {
   return (
     <div
-      className="absolute top-3 right-3 opacity-0 transition-all group-hover:opacity-100 cursor-pointer"
+      className="max-600pixel:opacity-100 absolute top-3 right-3 opacity-0 transition-all group-hover:opacity-100 cursor-pointer"
       onClick={onClick}
     >
       {favorite ? <FavoriteFillIcon /> : <FavoriteOutlineIcon />}
