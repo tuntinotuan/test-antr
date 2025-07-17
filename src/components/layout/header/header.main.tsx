@@ -99,8 +99,8 @@ const HeaderMain = ({
           placeholder="Tìm kiếm khoá học..."
           width={"100%"}
           setValues={handleSearchProduct}
-          className={`absolute top-full w-full opacity-0 ${
-            showSearchMobile ? "opacity-100" : ""
+          className={`absolute top-full w-full ${
+            showSearchMobile ? "opacity-100 visible" : "opacity-0 invisible"
           }`}
         ></SearchHeader>
       </div>
